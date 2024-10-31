@@ -23,4 +23,4 @@ This project is a **Book Recommendation System** that displays the top 50 popula
 - **Docker**: For containerization of the application.
 
 ## Project's Dataset
--**kaggle**: 
+-**kaggle**: https://www.kaggle.com/code/fahadmehfoooz/book-recommendation-system/input
