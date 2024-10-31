@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommender</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        .card {
+            background-color: #333;
+            border: none;
+            color: white;
+        }
+        .card-body {
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 items per row */
+            gap: 20px; /* Space between items */
+            padding: 20px;
+        }
+        @media (max-width: 1200px) {
+            .grid-container {
+                grid-template-columns: repeat(4, 1fr); /* 4 items per row on smaller screens */
+            }
+        }
+        @media (max-width: 992px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+            }
+        }
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+            }
+        }
+        @media (max-width: 576px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* 1 item per row on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg" style="background-color:#00a65a">
+        <a class="navbar-brand" href="#">My Book Recommender</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/recommend">Recommend</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Top 50 Books</h1>
+            </div>
+        </div>
+
+        <div class="grid-container">
+            {% for i in range(0, 50) %}
+                <div class="card h-100">
+                    <div class="card-body">
+                        <img class="card-img-top img-fluid" src="{{ image[i] }}" alt="Book Image">
+                        <p>{{ book_name[i] }}</p>
+                        <h4>{{ author[i] }}</h4>
+                        <h4>Votes - {{ votes[i] }}</h4>
+                        <h4>Rating - {{ rating[i] }}</h4>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
